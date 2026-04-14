@@ -1,30 +1,25 @@
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { data } from './data';
 
-function Detail({ pilihan }) {
+function Detail() {
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  if (!pilihan) {
-    return (
-      <div style={{ textAlign: 'center' }}>
-        <p>Data tidak ditemukan!</p>
-        <button onClick={function() { navigate('/'); }}>Balik ke Home</button>
-      </div>
-    );
-  }
+  const teman = data.find(function(item) {
+    return item.id === Number(id);
+  });
 
   return (
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
       <h1>Detail Teman</h1>
-      <div style={{ border: '1px solid #ccc', padding: '20px', display: 'inline-block', borderRadius: '8px' }}>
-        <img src={pilihan.foto} alt={pilihan.nama} width="120" style={{ borderRadius: '50%' }} />
-        <h3>{pilihan.nama}</h3>
-        <p>Kelas: {pilihan.kelas}</p>
-        <p>Hobi: {pilihan.hobi}</p>
+      <div style={{ border: '1px solid #ccc', padding: '20px', display: 'inline-block', marginBottom: '15px' }}>
+        <img src={teman.foto} alt={teman.nama} width="150" style={{ borderRadius: '50%' }} />
+        <h3>{teman.nama}</h3>
+        <p>Kelas: {teman.kelas}</p>
+        <p>Hobi: {teman.hobi}</p>
       </div>
       <br />
-      <button onClick={function() { navigate(-1); }} style={{ marginTop: '15px' }}>
-        Kembali
-      </button>
+      <button onClick={function() { navigate(-1); }}>Kembali</button>
     </div>
   );
 }
