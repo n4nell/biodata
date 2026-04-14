@@ -1,9 +1,3 @@
-Berikut versi yang sudah dirapikan dalam format **README GitHub (Markdown)** tanpa mengubah isi teks atau kode kamu sama sekali—hanya ditata agar enak dibaca 👇
-
----
-
-# 📘 React Biodata App (Vite + React Router)
-
 ## 🛠 Langkah 1: Inisialisasi Project
 
 Pertama, kita akan membuat folder project menggunakan Vite. Vite dipilih karena proses pengembangannya jauh lebih cepat daripada create-react-app.
